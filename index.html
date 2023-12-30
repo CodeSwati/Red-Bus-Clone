@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Red Bus clone using Tailwind CSS and daisyUI</title>
+	<link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.24/dist/full.min.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+     
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://st.redbus.in/Images/rdc/rdc-redbus-logo.svg" >
+  
+  <style>
+  	 html{
+  	 	scroll-behavior: smooth; 
+  	 }
+  </style>
+
+</head>
+<body class="font-sans	">
+
+	<!-- ------------------------------navbar---------------------------------------- -->
+   <div class="flex items-center px-20 w-full h-24 bg-indigo-200 fixed top-0 bg-white z-50 ">
+
+   	<div class=" flex items-center w-1/3 gap-16">
+        <i class="fa-solid fa-bars lg:hidden text-[#d84e55]"></i>
+   		<img src="https://st.redbus.in/Images/rdc/rdc-redbus-logo.svg" class="cursor-pointer h-10 lg:h-auto">
+   		<span class="w-2 h-8 hidden lg:flex text-slate-400"> &#124;</span>
+   	</div>
+
+    <ul class="hidden lg:flex gap-10">
+   		<li class="flex flex-col items-center text-white bg-[#d84e55] px-3 py-2 rounded-xl cursor-pointer">
+   			<img src="https://st.redbus.in/web/images/layout/rb_vertical.svg" class="h-9 w-9 filter invert brightness-0">
+   			<span>Bus&nbsp;Tickets</span>
+   		</li>
+   		<li class="flex flex-col items-center px-3 py-2 cursor-pointer hover:bg-gray-100 rounded-xl">
+   			<img src="https://st.redbus.in/web/images/layout/ryde_vertical.svg" class="h-9 w-9 filter brightness-0 hover:filter-none">
+   			<span>Cab&nbsp;Rental</span>
+   		</li>
+   		<li class="flex flex-col items-center px-3 py-2 hover:bg-gray-100 rounded-xl cursor-pointer">
+   			<img src="https://st.redbus.in/web/images/layout/rail_vertical.svg" class="h-9 w-9 filter brightness-0 hover:filter-none">
+   			<span>Train&nbsp;Tickets</span>
+   		</li>
+   	</ul>
+
+   	<div class="flex justify-end gap-10 w-full">
+   		<div class="flex items-center cursor-pointer hover:bg-gray-200 rounded-xl gap-2 text-gray-600 px-2 py-1">
+   			<span class="material-symbols-outlined">headset_mic</span>
+   			<span>Help</span>
+   		</div>
+
+   		<div class="flex items-center cursor-pointer hover:bg-gray-200 rounded-xl gap-2 text-gray-600 py-1 px-2">
+   			<span class="material-symbols-outlined">account_circle</span>
+   			<div class="flex items-center">
+   			<span>Account</span>
+   			<span class="material-symbols-outlined text-base">keyboard_arrow_down</span>
+            </div>
+   		</div>
+   		
+   	</div>
+   	
+   </div>
+
+<!-- ----------------------------------main image------------------------------------------------ -->
+     
+     <div class=" bg-cover bg-repeat-round h-[15rem] lg:h-[33.5rem] flex flex-col justify-center items-center gap-3 lg:gap-10 mt-24" style="background-image:url('https://st.redbus.in/Images/HomeIndia/HeroImageV2_C.png'); width: ;">
+
+         <p class="text-lg lg:text-3xl text-white font-bold tracking-wide">India's No. 1 Online Bus Ticket Booking Site</p>
+
+         <div class="bg-white rounded-3xl flex items-center gap-10 h-14 lg:h-28 w-[35rem] lg:w-[62rem] pl-7">
+         	<div class="flex items-center  w-1/4 border-r-[1px] border-gray-300 h-full relative">
+         		<i class="fa-solid fa-person-walking-luggage " style="color: #eab21a; font-size:14px;"></i>
+	   		   <i class="fa-solid fa-bus-simple mr-3" style="color: #bbbab4; font-size:22px"></i>
+	   		   <p class="text-sm lg:text-lg font-normal lg:hover:absolute hover:top-7 hover:left-12 cursor-pointer hover:text-gray-400 hover:text-sm">From</p> 
+	   		   <div class=" flex justify-end w-full bg-white -mr-4">
+	   		   <i class="fa-solid fa-arrow-right-arrow-left px-[5px] lg:px-[8px] py-[4px]  lg:py-[7px] border-[1px] border-gray-300 rounded-full" style="color:grey;"></i>
+	   		   </div>
+         	</div>
+         	
+         	<div class="flex items-center w-1/4 border-r-[1px] border-gray-300 h-full relative">
+         		<i class="fa-solid fa-bus-simple" style="color: #bbbab4; font-size:22px"></i>
+	   	   	    <i class="fa-solid fa-person-walking-luggage mr-3" style="color: #eab21a; font-size: 14px;"></i>
+	   	   	    <p class="text-sm lg:text-lg font-normal lg:hover:absolute hover:top-7 hover:left-12 cursor-pointer hover:text-gray-400 hover:text-sm">To</p>
+         	</div>
+
+         	<div class="flex items-center w-1/6 lg:ml-0  -ml-8">
+         		<span class="material-symbols-outlined mr-3">calendar_month</span>
+         		<p class="text-sm lg:text-lg font-normal">Date</p>
+         	</div>
+
+         	<div class="bg-[#d84e55] text-white rounded-r-3xl h-full flex w-1/4 justify-center items-center ">
+         		<p class="font-bold text-sm lg:text-xl tracking-wide cursor-pointer whitespace-nowrap">SEARCH BUSES</p>
+         	</div>
+         </div>
+     	
+     </div>
+<!-- -----------------------------------carousel----------------------------------------------- -->
+
+    <div class=" flex flex-col gap-10 shadow-lg border border-gray-300 mx-[60px] lg:mx-[90px] p-6 lg:-mt-11 -mt-6 rounded-3xl bg-white relative">
+    	<div class="flex justify-between items-center">
+    		<p class="text-xl lg:text-3xl tracking-wide">TRENDING OFFERS</p>
+    		<button class="border-[1px] border-gray-400 rounded-full py-1 px-2 text-md lg:py-2 lg:px-4 lg:text-xl text-blue-700 font-medium">
+    		 View All</button>
+    	</div>
+
+                      <!-- ------------carousel boxes------------ -->
+              <!-- i have use daisy UI for carousel for moving x-axix -->
+
+        <div class=" flex flex-row gap-6 hovere:snap-x hover:snap-proximity hover:overflow-x-auto overflow-x-hidden group">
+        	<div class="absolute top-[10rem] right-5 invisible group-hover:visible ">
+        		<a href="#slide7"  class="btn btn-circle ">❯</a>
+        	</div>
+        	<div class="absolute top-[10rem] left-5 invisible group-hover:visible ">
+        		<a href="#slide1" class="btn btn-circle">❮</a>
+        	</div>
+
+        	<div id="slide1" class="bg-gradient-to-r from-blue-900 to-blue-600 h-30 lg:h-40 w-1/2 lg:w-1/4 rounded-xl carousel-item flex items-center justify-center gap-4 py-4 px-2 box-border ">
+
+        		<img src="https://st.redbus.in/images/FIRST/first_26th_sep_2022_ravi/tile-80X80.png " class="rounded-full">
+                <div class="flex flex-col text-white gap-1">
+                	<button class="p-[2px] rounded-3xl w-1/4 text-xs bg-[#ffffff33] ">BUS</button>
+                	<p class="text-md font-bold tracking-wide">Save up to Rs 250 on bus tickets</p>
+                	<div class="flex flex-col gap-2">
+                		<p class="text-sm">Valid till 31 Dec</p>
+                		<div class="flex gap-3">
+                			<p class="border border-dashed  text-xs rounded-md py-[2px] px-2 bg-[#ffffff33] tracking-wide">FIRST</p>
+                			<i class="fa-regular fa-copy text-md"></i>
+                		</div>
+                	</div>
+                </div>
+
+        	</div>
+
+        	<div class="bg-gradient-to-r from-[#273965] to-[#73ecb3] h-30 lg:h-40 w-1/2 lg:w-1/4 rounded-xl carousel-item flex items-center justify-center gap-4 py-4 px-2 box-border">
+
+        		<img src="https://st.redbus.in/Images/INDOFFER/ICICI300/80x801.png " class="rounded-full">
+                <div class="flex flex-col text-white gap-1">
+                	<button class="p-[2px] rounded-3xl w-1/4 text-xs bg-[#ffffff33] ">BUS</button>
+                	<p class="text-md font-bold tracking-wide">Max Rs 500 off with ICICI Netbanking</p>
+                	<div class="flex flex-col gap-2">
+                		<p class="text-sm">Valid till 31 Dec</p>
+                		<div class="flex gap-3">
+                			<p class="border border-dashed  text-xs rounded-md py-[2px] px-2 bg-[#ffffff33] tracking-wide">ICICI500</p>
+                			<i class="fa-regular fa-copy text-md"></i>
+                		</div>
+                	</div>
+                </div>
+        		
+        	</div>
+        	<div class="bg-gradient-to-r from-red-900 to-red-500 h-30 lg:h-40 w-1/2 lg:w-1/4 rounded-xl carousel-item flex items-center justify-center gap-4 py-4 px-2 box-border">
+
+        		<img src="https://st.redbus.in/Images/INDOFFER/SUPERHIT/80x80.png" class="rounded-full">
+                <div class="flex flex-col text-white gap-1">
+                	<button class="p-[2px] rounded-3xl w-1/4 text-xs bg-[#ffffff33] ">BUS</button>
+                	<p class="text-md font-bold tracking-wide">Save up to Rs 300 on AP, TS routes</p>
+                	<div class="flex flex-col gap-2">
+                		<p class="text-sm">Valid till 31 Dec</p>
+                		<div class="flex gap-3">
+                			<p class="border border-dashed  text-xs rounded-md py-[2px] px-2 bg-[#ffffff33] tracking-wide">SUPERHIT</p>
+                			<i class="fa-regular fa-copy text-md"></i>
+                		</div>
+                	</div>
+                </div>
+        		
+        	</div>
+        	<div  class="bg-gradient-to-r from-green-700 to-green-400 h-30 lg:h-40 w-1/2 lg:w-1/4 rounded-xl carousel-item flex items-center justify-center gap-4 py-4 px-2 box-border">
+        		
+        		<img src="https://st.redbus.in/Images/INDOFFER/BUS300/80x801.png" class="rounded-full">
+                <div class="flex flex-col text-white gap-1">
+                	<button class="p-[2px] rounded-3xl w-1/4 text-xs bg-[#ffffff33] ">BUS</button>
+                	<p class="text-md font-bold tracking-wide w-[180px]">Max 20% off up to Rs 300 on Delhi, North,</p>
+                	<div class="flex flex-col gap-2">
+                		<p class="text-sm">Valid till 31 Dec</p>
+                		<div class="flex gap-3">
+                			<p class="border border-dashed  text-xs rounded-md py-[2px] px-2 bg-[#ffffff33] tracking-wide">BUS300</p>
+                			<i class="fa-regular fa-copy text-md"></i>
+                		</div>
+                	</div>
+                </div>
+
+        	</div>
+        	<div  class="bg-gradient-to-r from-blue-700 to-blue-400 h-30 lg:h-40 w-1/2 lg:w-1/4 rounded-xl carousel-item flex items-center justify-center gap-4 py-4 px-2 box-border">
+        		<img src="https://st.redbus.in/Images//INDOFFER/RBTRIP/80x801.png" class="rounded-full">
+                <div class="flex flex-col text-white gap-1">
+                	<button class="p-[2px] rounded-3xl w-1/4 text-xs bg-[#ffffff33] ">BUS</button>
+                	<p class="text-md font-bold tracking-wide">Save up to Rs 200 in Kerala routes.</p>
+                	<div class="flex flex-col gap-2">
+                		<p class="text-sm">Valid till 31 Dec</p>
+                		<div class="flex gap-3">
+                			<p class="border border-dashed  text-xs rounded-md py-[2px] px-2 bg-[#ffffff33] tracking-wide">RBTRIP</p>
+                			<i class="fa-regular fa-copy text-md"></i>
+                		</div>
+                	</div>
+                </div>
+
+        	</div>
+        	<div  class="bg-gradient-to-r from-orange-500 to-orange-300 h-30 lg:h-40 w-1/2 lg:w-1/4 rounded-xl carousel-item flex items-center justify-center gap-4 py-4 px-2 box-border">
+        		<img src="https://st.redbus.in/Images/INDOFFER/80x80/Chartered.png" class="rounded-full">
+                <div class="flex flex-col text-white gap-1">
+                	<button class="p-[2px] rounded-3xl w-1/4 text-xs bg-[#ffffff33] ">BUS</button>
+                	<p class="text-md font-bold tracking-wide">Save up to Rs 300 on Chartered Bus.</p>
+                	<div class="flex flex-col gap-2">
+                		<p class="text-sm">Valid till 31 Dec</p>
+                		<div class="flex gap-3">
+                			<p class="border border-dashed  text-xs rounded-md py-[2px] px-2 bg-[#ffffff33] tracking-wide">CHARTERED15</p>
+                			<i class="fa-regular fa-copy text-md"></i>
+                		</div>
+                	</div>
+                </div>
+        	</div>
+
+        	<div id="slide7" class="bg-gradient-to-r from-[#3c1053] to-[#ad5389] h-30 lg:h-40 w-1/2 lg:w-1/4 rounded-xl carousel-item flex items-center justify-center gap-4 py-4 px-2 box-border">
+        		<img src="https://st.redbus.in/Images/TSRTC/80x80.png" class="rounded-full">
+                <div class="flex flex-col text-white gap-1">
+                	<button class="p-[2px] rounded-3xl w-1/4 text-xs bg-[#ffffff33] ">BUS</button>
+                	<p class="text-md font-bold tracking-wide">Save up to Rs 250 on TSRTC bus tickets</p>
+                	<div class="flex flex-col gap-2">
+                		<p class="text-sm">Valid till 31 Dec</p>
+                		<div class="flex gap-3">
+                			<p class="border border-dashed  text-xs rounded-md py-[2px] px-2 bg-[#ffffff33] tracking-wide">FIRST</p>
+                			<i class="fa-regular fa-copy text-md"></i>
+                		</div>
+                	</div>
+                </div>
+        	</div>
+        	<div  class="bg-gradient-to-r from-[#3f2b96] to-[#a8c0ff] h-30 lg:h-40 w-1/2 lg:w-1/4 rounded-xl carousel-item flex items-center justify-center gap-4 py-4 px-2 box-border">
+        		<img src="https://st.redbus.in/Images/INDOFFER/UPSRTC/247X147.png" class="rounded-full h-16 w-16">
+                <div class="flex flex-col text-white gap-1">
+                	<button class="p-[2px] rounded-3xl w-1/4 text-xs bg-[#ffffff33] ">BUS</button>
+                	<p class="text-md font-bold tracking-wide">Save up to Rs 250 on bus tickets</p>
+                	<div class="flex flex-col gap-2">
+                		<p class="text-sm">Valid till 31 Dec</p>
+                		<div class="flex gap-3">
+                			<p class="border border-dashed  text-xs rounded-md py-[2px] px-2 bg-[#ffffff33] tracking-wide">UPSRTC</p>
+                			<i class="fa-regular fa-copy text-md"></i>
+                		</div>
+                	</div>
+                </div>
+        	</div>
+        </div>
+
+    </div>
+
+<!-- ----------------------------------Second Image------------------------------------------------- -->
+    <div class="flex justify-center mx-[60px] lg:mx-[90px] my-20 ">
+    	<img src="https://st.redbus.in/Images/99/webreferal.png" class="w-[1200px] h-[90px] rounded-xl">
+    </div>
+
+<!-- -------------------------------------Third image------------------------------------- -->
+
+    <div class="h-[45rem] flex gap-10 mx-[100px] lg:mx-[110px] relative my-36">
+    	<div class="flex flex-col justify-between lg:w-1/2">
+    		<p class="text-[2.5rem] tracking-wide leading-[60px] ">NOW,<b>GET MORE THAN JUST BUS</b> TICKETS WITH REDBUS!</p>
+
+    		<div class="flex flex-col gap-11 ">
+
+                 <div class="flex items-center justify-center gap-6 w-[30rem] h-12 whitespace-nowrap border-b border-gray-200">
+                 	<div class="flex px-3 items-center gap-3 w-2/3 border-b-2 border-white hover:border-[#d84e55] rounded-t-lg h-full hover:bg-gray-200 hover:font-bold hover:text-[#d84e55] cursor-pointer
+                 	group">
+                 		<img src="https://s2.rdbuz.com/web/images/homeV2/AboutUs/ryde.svg" class="filter brightness-0 group-hover:filter-none">
+                 		<p>Cab/Bus Rental</p>
+                 	</div>
+                 	<div class="border-l border-gray-300 w-[1px] h-1/2"></div>
+                 	<div class="flex px-3 items-center gap-3 w-2/3 border-b-2 border-white hover:border-[#d84e55] rounded-t-lg h-full hover:bg-gray-200 hover:font-bold hover:text-[#d84e55] cursor-pointer
+                 	group">
+                 		<img src="https://s1.rdbuz.com/web/images/homeV2/AboutUs/redRail.svg" class="filter brightness-0 
+                 		group-hover:filter-none">
+                 		<p>Train Tickets</p>
+                 	</div>
+                 </div>
+    			
+               
+    			<p class="text-md">Rent Cabs, Tempo Travellers & Buses with best drivers</p>
+    			<div class="w-full flex flex-col gap-5 font-bold tracking-wide">
+    				<div class="flex gap-9 items-center">
+    					<img src="https://s3.rdbuz.com/web/images/homeV2/AboutUs/ryde_car.svg">
+    					<p >Outstation</p>
+    				</div>
+
+    				<div class="flex gap-9 items-center">
+    					<img src="https://s1.rdbuz.com/web/images/homeV2/AboutUs/ryde_car_hourly.svg">
+    					<p>Hourly Rental</p>
+    				</div>
+
+    				<div class="flex gap-7 items-center">
+    					<img src="https://s2.rdbuz.com/web/images/homeV2/AboutUs/ryde_airport_transport.svg">
+    					<p>Airport Transfers</p>
+    				</div>
+    				
+    			</div>
+    		</div>
+    		<button class="text-white font-bold tracking-wide text-lg bg-[#d84e55] p-3 rounded-xl w-1/2">Book Cab / Bus Rental &nbsp;<i class="fa-solid fa-arrow-right-long text-white"></i></button>
+    		
+    	</div>
+
+        
+        <div class=" bg-cover bg-no-repeat h-full rounded-[40px] w-1/2 hidden lg:flex"style="background-image:url('https://s3.rdbuz.com/web/images/homeV2/AboutUs/aboutUsImg.svg');">
+        	<img src="https://s3.rdbuz.com/web/images/homeV2/AboutUs/rydePop.svg" title='Online Train Tickets Booking' class="right-0 bottom-20 absolute" >
+        </div>
+	
+    </div>
+
+    <!-- -------------------------------------Forth image----------------------------------------- -->
+
+    <div class="bg-cover rounded-3xl  bg-center bg-no-repeat my-20 h-auto lg:h-[27rem] mx-[90px] lg:mx-[110px] flex flex-col justify-center gap-10 p-8" style="background-image:url('https://s1.rdbuz.com/web/images/homeV2/appinstall/appInstallbg.svg')">
+    	<p class="text-xl lg:text-5xl tracking-wide text-white ">ENJOY THE APP!</p>
+
+    	<div class="flex items-center gap-14 ">
+
+    		<div class=" flex flex-col justify-center px-8 bg-white gap-[6px] rounded-2xl h-64 w-1/3 hidden lg:flex">
+    		      <p class="text-lg text-gray-600 before:content-['\f058'] before:text-green-600 before:text-lg before:mr-2 before:font-['Font_Awesome_6_Free']">Quick access</p> 
+    			  <p class="text-lg text-gray-600 before:content-['\f058'] before:text-green-600 before:text-lg before:mr-2 before:font-['Font_Awesome_6_Free']">Superior live tracking</p>
+
+    			  <div class="flex justify-between py-1">
+    			  	<div >
+    			  		<div class="flex items-center">
+	    			  	<h2 class="text-2xl font-bold ">4.5</h2>
+	    			  	<i class="fa-solid fa-star text-sm ml-1"></i>
+	    			    </div>
+	    			  	<p class="text-sm tracking-wide">50M+ downloads</p>
+	    			  	<p class="text-sm font-medium tracking-wide">Play Store</p>
+	    			    </div>
+                        <div class="border border-gray-300"></div>
+    			    <div>
+	    			  	<div class="flex items-center">
+	    			  	<h2 class="text-2xl font-bold ">4.6</h2>
+	    			  	<i class="fa-solid fa-star text-sm ml-1"></i>
+	    			    </div>
+	    			  	<p class="text-sm tracking-wide">50M+ downloads</p>
+	    			  	<p class="text-sm font-medium tracking-wide">App Store</p>
+	    			    </div> 
+    			  </div>
+    		</div>
+           
+           <div class=" leading-5 flex flex-col gap-3">
+           	<p class="text-white font-bold tracking-wide w-[119px]">Scan to download</p>
+           	<img src="https://s1.rdbuz.com/web/images/homeV2/qrCode.svg">
+           </div>
+
+           <div class=" leading-5 flex flex-col gap-4">
+           	<p class="text-white tracking-wide font-bold w-[119px]">Download the App on</p>
+           	<img src="https://s2.rdbuz.com/web/images/homeV2/appinstall/playStore.svg" class="cursor-pointer">
+           	<img src="https://s3.rdbuz.com/web/images/homeV2/appinstall/appStore.svg" class="cursor-pointer">
+           </div>
+
+    	</div>
+    </div>
+
+    <!-- ----------------------------------fifth image (primo)----------------------------- -->
+    <div class="flex flex-col justify-center  mx-[110px] my-32 h-auto hidden lg:flex">
+
+    	<div class="flex  justify-center pb-12">
+    		<img src="https://s1.rdbuz.com/web/images/homeV2/primoSection/primoTopBanner.svg" >
+        </div>
+
+    	<div class="flex justify-between gap-12">
+
+    		<div class="bg-gradient-to-r from-[#264899] to-[#7d4686] h-40 w-1/3 rounded-xl flex items-center justify-center gap-7 py-2 px-4 ">
+    			<img src="https://s2.rdbuz.com/web/images/homeV2/primoSection/primoSubImg1.svg">
+    			<div class="w-1/2 text-white flex flex-col gap-3">
+    				<p class="text-xl font-bold leading-6">1 of 5 buses qualify</p>
+    				<p class="text-sm leading-5">Primo’s strict safety qualification ensures a safer travel for you</p>
+    			</div>
+    		</div>
+
+    		<div class="bg-gradient-to-r from-[#264899] to-[#7d4686] h-40 w-1/3 rounded-xl flex items-center justify-center gap-7 py-2 px-4 ">
+    			<img src="https://s3.rdbuz.com/web/images/homeV2/primoSection/primoSubImg2.svg">
+    			<div class="w-1/2 text-white flex flex-col gap-3">
+    				<p class="text-xl font-bold leading-6">Preferred by 90%</p>
+    				<p class="text-sm leading-5">90% of travellers re-book Primo buses for its punctuality and comfort</p>
+    			</div>
+    		</div>
+
+    		<div class="bg-gradient-to-r from-[#264899] to-[#7d4686] h-40 w-1/3 rounded-xl flex items-center justify-center gap-7 py-2 px-4 ">
+    			<img src="https://s2.rdbuz.com/web/images/homeV2/primoSection/primoSubImg3.svg">
+    			<div class="w-1/2 text-white flex flex-col gap-3">
+    				<p class="text-xl font-bold leading-6">9 Lac+ monthly travellers</p>
+    				<p class="text-sm leading-5">In 2022, 9 Lac+ people traveled with Primo every month</p>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+    <!-- -----------------------------------sixth section------------------------------------------------ -->
+
+
+    <div class="flex flex-col my-20 mx-[110px] gap-10">
+    	<p class="text-4xl tracking-wide">PARTNERED WITH</p>
+    	<div class="flex justify-between">
+    		<p class="text-3xl">25 RTCs</p>
+    		<button class="border px-4 py-2 rounded-2xl border-gray-400 hover:shadow-2xl hover:ring-[2px] hover:ring-gray-200 hover:shadow-gray-300 text-xl">View All</button>
+    	</div>
+ 
+        <div class="flex items-center justify-between">
+	    	<div class="flex flex-col items-center gap-2 cursor-pointer">
+	    		<img src="https://st.redbus.in/buslogos/country/ind/logo_group/10283.png" class="h-auto w-24">
+	    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-200">APSRTC</p>
+	    	</div>
+
+	    	<div class="flex flex-col items-center gap-2 cursor-pointer">
+	    		<img src="https://s3.rdbuz.com/web/images/homeV2/rtc/GSRTC.svg" class="h-auto w-24">
+	    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-200">GSRTC</p>
+	    	</div>
+
+	    	<div class="flex flex-col items-center gap-2 cursor-pointer">
+	    		<img src="https://st.redbus.in/Images/carousel/TSRTC.png" class="h-auto w-24">
+	    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-200">TSRTC</p>
+	    	</div>
+
+	    	<div class="flex flex-col items-center gap-2 cursor-pointer">
+	    		<img src="https://st.redbus.in/buslogos/country/ind/logo_group/10823.png" class="h-24 w-24">
+	    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-200">MSRTC</p>
+	    	</div>
+
+	    	<div class="flex flex-col items-center gap-2 cursor-pointer">
+	    		<img src="https://s3.rdbuz.com/web/images/homeV2/rtc/KERALA-RTC.svg" class="h-auto w-24">
+	    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-200">Kerala RTC</p>
+	    	</div>
+
+	    	<div class="flex flex-col items-center gap-2 cursor-pointer">
+	    		<img src="https://st.redbus.in/buslogos/country/ind/logo_group/16426.png" class="h-auto w-24">
+	    		<p class=" px-3 py-2 rounded-3xl hover:bg-gray-200">SBSTC</p>
+	    	</div>
+
+	    	<div class="flex flex-col items-center gap-2 cursor-pointer">
+	    		<img src="https://s3.rdbuz.com/web/images/homeV2/rtc/RSRTC.svg" class="h-auto w-24">
+	    		<p class="px-3  py-2 rounded-3xl hover:bg-gray-200">RSRTC</p>
+	    	</div>
+	    	<div class="flex flex-col items-center gap-2 cursor-pointer">
+	    		<img src="https://s3.rdbuz.com/web/images/homeV2/rtc/UPSRTC.svg" class="h-auto w-24">
+	    		<p class=" px-3 py-2 rounded-3xl hover:bg-gray-200">UPSRTC</p>
+	    	</div>
+	    </div>	
+    </div>
+
+    <!--------------------------------Seventh section---------------------------------------->
+
+    <div class="flex flex-col mx-[100px] lg:mx-[110px] gap-10 my-20">
+    	<div class="flex justify-between">
+    		<p class="text-3xl">3500+ Private Bus Operators</p>
+    		<button class="border px-4 py-2 rounded-2xl border-gray-400 hover:shadow-2xl hover:ring-[2px] hover:ring-gray-200 hover:shadow-gray-300 text-xl">View All</button>
+    	</div>
+
+    	<div class="grid grid-cols-5 gap-x-9 gap-y-4 justify-items-start">
+
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">SRS Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Evacay Bus</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Kallada Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">KPN Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide text-center whitespace-nowrap">Orange Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide text-center whitespace-nowrap">Parveen Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Rajdhani Express</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">VRL Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Chartered Speed..</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Bengal Tiger</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">SRM Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Infant Jesus</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Patel Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">JBT Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Shatabdi Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Eagle Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Kanker Roadways</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Komitla</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Sri Krishna Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Humsafar Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Mahasagar Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Raj Express</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Sharma Travels</p>
+    		<p class="px-3 py-2 rounded-3xl hover:bg-gray-300 cursor-pointer tracking-wide  text-center whitespace-nowrap">Shrinath Travels</p>
+    		
+    	</div>
+    </div>
+
+
+
+    <!-- ----------------------------Exclusive deal section------------------------------------------ -->
+
+    <div class="flex flex-col  justify-center gap-7 mx-[100px] lg:mx-[110px] my-32">
+    	<h2 class="text-2xl lg:text-4xl">Today’s Exclusive redDeals on redBus</h2>
+    	<p class="text-sm lg:text-lg tracking-wide">Don't miss out on these incredible offers, book your tickets now and travel with convenience and affordability. Hurry, grab the best deals before they're gone!</p>
+
+    	<div class="flex items-center w-full border border-gray-300 h-40 rounded-2xl gap-5 lg:gap-10 px-5 lg:px-12 bg-cover bg-no-repeat bg-center" style="background-image:url(https://st.redbus.in/seo/common/redDeals_bg.webp)"> 
+    		<img src="https://st.redbus.in/Images/rdc/rdc-redbus-logo.svg" class="w-auto h-9">
+    		<div class="flex flex-col gap-1 lg:gap-3 w-2/3">
+    			<p class="whitespace-nowrap text-md lg:text-2xl tracking-wide font-medium">Unlock Unbeatable Exclusive redDeals! <span class="text-[#d84e55]">20% OFF</span></p>
+    			<p class="whitespace-nowrap text-xs lg:text-md font-medium"><span >4313</span class="text-[#d84e55]"> Deals  &#124;&nbsp;<span class="text-[#d84e55]">1808 </span >Bus Operators  &#124;&nbsp;<span class="text-[#d84e55]">269330</span> Routes</p>
+    		</div>
+            
+            <div class="flex justify-end w-full ">
+            	<a href="#" class="no-underline px-3 lg:px-5 py-2 text-white bg-[#d84e55] font-medium rounded-xl whitespace-nowrap">Book now</a>
+            </div>   <!------------- (#) is used to go to the top of the page ---------------->
+    		
+    		
+    	</div>
+    </div>
+
+
+<!-- --------------------------------Accordian first --------------------------------------- -->
+           
+           <!-- i have used daisyUI for creating accordian -->
+
+
+	<div class="flex flex-col gap-6 mx-[90px] mx-[110px]">
+		<h1 class="text-4xl tracking-wide">FAQs</h1>
+		<ul class="flex lg:flex-row flex-col gap-16 no-underline text-lg py-2 tracking-wide w-full whitespace-nowrap">
+			<li class="border-b-2 border-[#d84e55] p-2 text-[#d84e55]"><a href="">General</a></li>
+			<li class= "hover:border-b-2 hover:border-gray-300 p-2"><a href="" >Ticket-related</a></li>
+			<li  class= " hover:border-b-2 hover:border-gray-300 p-2"><a href="">Payment</a></li>
+			<li  class= " hover:border-b-2 hover:border-gray-300 p-2"><a href="">Cancellation & Refund</a></li>
+			<li  class= " hover:border-b-2 hover:border-gray-300 p-2"><a href="">Insurance</a></li>
+		</ul>
+        
+        <div class="collapse collapse-plus border border-base-200 hover:bg-gray-200 w-full">
+		    <input type="radio" name="my-accordion-3" /> 
+			<div class="collapse-title text-lg font-semibold">
+			    Can I track the location of my booked bus online?
+			</div>
+			<div class="collapse-content"> 
+			    <p>Yes, you can track your bus online by using our bus tracking app feature called “Track My Bus”. This feature allows passengers and their families to track the live bus tracking location. You may follow your bus on a map and use the information to plan your trip to the boarding point and to get off at the correct stop. Family and friends may also check the bus position to plan pick-ups and ensure your safety.</p>
+			</div>
+		</div>
+			
+		<div class="collapse collapse-plus border border-base-200 hover:bg-gray-200">
+			<input type="radio" name="my-accordion-3" /> 
+			 <div class="collapse-title text-lg font-semibold">
+			    What are the advantages of purchasing a bus ticket with redBus?
+			</div>
+			<div class="collapse-content"> 
+			    <p>There are many advantages to purchasing online bus tickets with redBus. redBus is India’s most trusted bus ticket company, where you can book any type of private or Government owned buses. redBus allows you to find the different types of buses, choose the preferred bus seats, and your nearest boarding and dropping points. You can also filter the buses based on timings like morning, evening bus etc.</p>
+			</div>
+		</div>
+
+		<div class="collapse collapse-plus border border-base-200 hover:bg-gray-200">
+			<input type="radio" name="my-accordion-3" /> 
+			<div class="collapse-title text-lg font-semibold">
+			    Why book bus tickets online on redBus?
+			</div>
+			<div class="collapse-content"> 
+			    <p>Booking bus tickets online on redBus is increasingly becoming the preferred choice for travelers due to its numerous advantages over traditional methods.With redBus, customers can book their bus tickets effortlessly from the comfort of their homes, avoiding the inconvenience of standing in long lines at bus stations or travel agencies. Online bus booking not only offers the luxury of comparing different bus schedules and operators but also presents various discount offers and exclusive deals, resulting in significant savings.
+
+				Payment security is another notable feature of online booking, which ensures that your financial information is well-protected against fraud. Additionally, customers get the privilege to pick their seats, providing a customized travel experience. Online bus booking platforms give real-time updates about any changes in the bus timetable, including delays or cancellations, enabling better planning.
+
+				The convenience doesn't stop here; travelers can even compare onboard amenities like charging points or snacks, further enhancing the travel experience.</p>
+			</div>
+		</div>
+
+		 <div class="collapse collapse-plus border border-base-200 hover:bg-gray-200">
+		    <input type="radio" name="my-accordion-3" /> 
+			<div class="collapse-title text-lg font-semibold">
+			    Do I need to create an account on the redBus site to book my bus ticket?
+			</div>
+			<div class="collapse-content"> 
+			    <p>No, you don’t have to create an account on redBus site to book your bus ticket. But it is advisable to create one to accelerate the process next time you want to book bus tickets. Also redBus has many discounts and offers that you can easily access if you have an account with us</p>
+			</div>
+		</div>
+
+		 <div class="collapse collapse-plus border border-base-200 hover:bg-gray-200">
+		    <input type="radio" name="my-accordion-3" /> 
+			<div class="collapse-title text-lg font-semibold">
+			    Does bus booking online cost me more?
+			</div>
+			<div class="collapse-content"> 
+			    <p>Not at all! The price of the bus ticket is the same as you would get from the bus operator/ counter of any bus ticket agency. Redbus reduces the travel budget by comparing the bus ticket prices among various operators, making it a more cost-effective choice. Therefore, online bus booking is increasingly being recognized as a more convenient, efficient, and economical mode of securing travel arrangements.
+			    </p>
+			</div>
+		</div>
+
+		<div class="collapse collapse-plus border border-base-200 hover:bg-gray-200">
+		    <input type="radio" name="my-accordion-3" /> 
+			<div class="collapse-title text-lg font-semibold">
+			    How can I get the discounts on the bus booking?
+			</div>
+			<div class="collapse-content"> 
+			    <p>To get the discount on bus booking please visit: https://www.redbus.in/info/OfferTerms and check the available offers. Copy the coupon code and paste it during checkout to avail the discount.</p>
+			</div>
+		</div>
+
+		<div class="collapse collapse-plus border border-base-200 hover:bg-gray-200">
+		    <input type="radio" name="my-accordion-3" /> 
+			<div class="collapse-title text-lg font-semibold">
+			    What's New in Bus Booking on redBus?
+			</div>
+			<div class="collapse-content"> 
+			    <p>Primo Bus Ticket: redBus has launched Primo bus services, where passengers can enjoy traveling in high-rated buses with best-in-class services. While looking for bus tickets on the desired route, customers can check the Primo tag to choose this excellent service. From hygiene standards to on-time service and comfort, passengers can benefit from online bus booking experience from Primo buses.
+			    </p>
+			</div>
+		</div>
+
+	</div>
+
+
+<!-- ------------------------------sticky scroll button----------------------------- -->
+
+	<div class="flex justify-end mx-[100px] lg:mx-[110px] my-20 sticky bottom-10 ">
+		<div class="w-10 h-14 border border-gray-600 bg-white rounded-2xl flex items-center justify-center p-4">
+			<a href="#"><i class="fa-solid fa-arrow-up animate-bounce text-lg"></i></a>
+		</div>
+	</div>
+
+<!-- ------------------------------Accordian Second--------------------------------------- -->
+
+    <div class="px-[90px] lg:px-[110px] bg-base-200 py-10">
+		<div class="collapse collapse-arrow bg-base-200 py-5 ">
+		  <input type="radio" name="my-accordion-2" /> 
+		  <div class="collapse-title text-xl font-bold">
+		    Popular Bus Routes
+		  </div>
+		  <div class="collapse-content text-sm tracking-wide" > 
+		    <a href="#">Delhi to Manali Bus</a>  &#124;
+		    <a href="#">Delhi to Shimla Bus</a>  &#124;
+		    <a href="#">Delhi to Katra Bus</a>  &#124;
+		    <a href="#">Delhi to Goa Bus</a>  &#124;
+		    <a href="#">Delhi to Mumbai Bus</a>  &#124;
+		    <a href="#">Delhi to Hyderabad Bus</a>  &#124;
+		    <a href="#">Delhi to Chennai Bus</a>  &#124;
+		    <a href="#">Delhi to Manali Bus</a>  &#124;
+		    <a href="#">Delhi to Pune Bus</a> 
+		  </div>
+	   </div>
+            <hr class="border-gray-300">
+
+		<div class="collapse collapse-arrow bg-base-200 py-5 border-none">
+		  <input type="radio" name="my-accordion-2" /> 
+		  <div class="collapse-title text-xl font-bold">
+		    Popular Cities
+		  </div>
+		  <div class="collapse-content text-sm tracking-wide"> 
+		   <a href="#">Delhi Bus Tickets</a>  &#124;
+		    <a href="#">Shimla Bus Tickets</a>  &#124;
+		    <a href="#">Mumbai Bus Tickets</a>  &#124;
+		    <a href="#">Goa Bus Tickets</a>  &#124;
+		    <a href="#">Hyderabad Bus Tickets</a>  &#124;
+		    <a href="#">Banglore Bus Tickets</a>  &#124;
+		    <a href="#">Chennai Bus Tickets</a>  &#124;
+		  </div>
+		</div>
+             <hr class="border-gray-300">
+
+		<div class="collapse collapse-arrow bg-base-200 py-5 border-none">
+		  <input type="radio" name="my-accordion-2" /> 
+		  <div class="collapse-title text-xl font-bold">
+		    Popular Operators
+		  </div>
+		  <div class="collapse-content text-sm tracking-wide"> 
+		   <a href="#">Delhi Bus Tickets</a>  &#124;
+		    <a href="#">Shimla Bus Tickets</a>  &#124;
+		    <a href="#">Mumbai Bus Tickets</a>  &#124;
+		    <a href="#">Goa Bus Tickets</a>  &#124;
+		    <a href="#">Hyderabad Bus Tickets</a>  &#124;
+		    <a href="#">Banglore Bus Tickets</a>  &#124;
+		    <a href="#">Chennai Bus Tickets</a> 
+		  </div>
+		</div>
+            <hr class="border-gray-300">
+	</div>	
+
+    <!-- ----------------------------Footer first---------------------- -->
+
+    <footer class="flex justify-between footer py-10 bg-base-200 text-base-content px-[90px] lg:px-[110px]">
+	  <aside class="w-60">
+	    <img src="https://st.redbus.in/Images/rdc/rdc-redbus-logo.svg" class="w-auto h-16 ">
+	    <p class="text-md leading-5">redBus is the world's largest online bus ticket booking service trusted by over 25 million happy customers globally. redBus offers bus ticket booking through its website, iOS and Android mobile apps for all major routes.</p>
+	  </aside> 
+	  <nav >
+	    <header class="footer-title font-bold text-lg">About redBus</header> 
+	    <a class="link link-hover no-underline">About us</a>
+	    <a class="link link-hover">Investor Relations</a>
+	    <a class="link link-hover">Contact us</a>
+	    <a class="link link-hover">Mobile version</a>
+	    <a class="link link-hover">redBus on mobile</a>
+	    <a class="link link-hover">Sitemap</a>
+	    <a class="link link-hover">Offers</a>
+	    <a class="link link-hover">Careers</a>
+	    <a class="link link-hover">Values</a>
+	  </nav> 
+	  <nav>
+	    <header class="footer-title font-bold text-lg ">Info</header> 
+	    <a class="link link-hover">T&C</a>
+	    <a class="link link-hover">Privacy policy</a>
+        <a class="link link-hover">FAQ</a>
+	    <a class="link link-hover">Blog</a>
+	    <a class="link link-hover">Bus operator registration</a>
+	    <a class="link link-hover">Agent registration</a>
+	    <a class="link link-hover">Insurance partner</a>
+	    <a class="link link-hover">User agreement</a>
+	  </nav> 
+	  <nav>
+	    <header class="footer-title font-bold text-lg">Global Sites</header> 
+	    <a class="link link-hover">India</a>
+	    <a class="link link-hover">Singapore</a>
+	    <a class="link link-hover">Malaysia</a>
+	    <a class="link link-hover">Indonesia</a>
+	    <a class="link link-hover">Peru</a>
+        <a class="link link-hover">Colombia</a>
+	  </nav>
+	  <nav>
+	    <header class="footer-title font-bold text-lg">Our Partners</header> 
+	    <a class="link link-hover">Goibibo Bus</a>
+	    <a class="link link-hover">Goibibo Hotels</a>
+	    <a class="link link-hover">Makemytrip Bus</a>
+	    <a class="link link-hover">Makemytrip Hotels</a>
+	    
+	  </nav>
+</footer>
+
+
+
+<!-- ---------------------------------footer second--------------------------------------- -->
+	
+	<footer class="footer items-center py-8 bg-base-200 text-base-content px-[90px] lg:px-[110px] border-gray-300 border-t ">
+	  <aside class="items-center grid-flow-col text-base">
+	    <p>Copyright © 2023 - All right reserved</p>
+	  </aside> 
+	  <nav class="grid-flow-col gap-8 md:place-self-center md:justify-self-end text-xl">
+	    <a><i class="fa-brands fa-facebook-f "></i></a>
+	    <a><i class="fa-brands fa-linkedin-in "></i></a>
+	    <a><i class="fa-brands fa-twitter"></i></a>
+	    <a><i class="fa-brands fa-square-instagram"></i></a>
+	  </nav>
+</footer>
+
+ 
+</body>
+</html>
